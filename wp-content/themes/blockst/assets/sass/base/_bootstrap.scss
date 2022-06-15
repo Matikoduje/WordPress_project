@@ -1,0 +1,74 @@
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+:root {
+	--bs-font-monospace: monospace;
+	--bs-body-font-family: var(--deo-body-font);
+	--bs-body-color: var(--wp--preset--color--tertiary);
+	--bs-body-bg: #fff;
+	--bs-body-line-height: 1.5;
+	--bs-body-font-size: 1.125rem;
+}
+
+// Override vars
+$headings-line-height: 1.3;
+$headings-margin-bottom: 0.625rem;
+$headings-font-weight: 600;
+$grid-gutter-width: 30px;
+$table-caption-color: var(--wp--preset--color--tertiary);
+$code-font-size: 1.125rem;
+$hr-opacity: 0.4;
+$link-color: var(--wp--preset--color--primary);
+$link-hover-color: var(--wp--preset--color--secondary);
+$link-decoration: none;
+
+$container-max-widths: (
+	// sm: 540px,
+	// md: 720px,
+	// lg: 960px,
+	xl: 1200px
+);
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 1025px,
+	xl: 1200px,
+);
+
+$enable-smooth-scroll: false;
+
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+@import "./node_modules/bootstrap/scss/utilities";
+
+@import "./node_modules/bootstrap/scss/reboot";
+@import "./node_modules/bootstrap/scss/containers";
+@import "./node_modules/bootstrap/scss/grid";
+@import "./node_modules/bootstrap/scss/transitions";
+@import "./node_modules/bootstrap/scss/close";
+@import "./node_modules/bootstrap/scss/modal";
+
+// Helpers
+@import "./node_modules/bootstrap/scss/helpers/ratio";
+@import "./node_modules/bootstrap/scss/helpers/visually-hidden";
+
+$utilities: (
+	"display": (
+		responsive: true,
+		print: true,
+		property: display,
+		class: d,
+		values: inline inline-block block table table-row table-cell flex
+			inline-flex none,
+	),
+);
+
+// Utilities
+@import "./node_modules/bootstrap/scss/utilities/api";

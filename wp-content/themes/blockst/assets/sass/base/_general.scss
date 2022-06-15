@@ -1,0 +1,96 @@
+/*
+Theme Name: Blockst
+Theme URI: https://deothemes.com/wordpress-themes/blockst-gutenberg-business-wordpress-theme/
+Author: DeoThemes
+Author URI: https://deothemes.com
+Description: Blockst is a simple and clean Gutenberg WordPress theme that come with 18+ predefined patterns. Showcase your projects in an eye-catching way, with great emphasis on the important details. Try the Blockst WordPress theme and start building professional websites today!
+Version: 1.0
+Tested up to: 6.0
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blockst
+Tags: blog, portfolio, e-commerce, translation-ready, theme-options, grid-layout, left-sidebar, right-sidebar, custom-colors, custom-background, custom-logo, footer-widgets, featured-images, custom-menu, block-styles, wide-blocks, rtl-language-support
+
+@fs_premium_only /includes/customizer/modules/woocommerce.php, /includes/customizer/modules/socials.php, /includes/customizer/modules/gdpr.php, /includes/plugins/, /includes/patterns/pro/, /includes/child-theme/, /template-parts/header/header-centered-logo-template.php, /template-parts/page-title/page-title-shop.php /assets/css/compatibility/, /includes/compatibility/, /woocommerce/, /assets/js/woo-scripts.js, /assets/js/woo-scripts.min.js, /assets/sass/woocommerce/, /assets/sass/woocommerce.scss
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*-------------------------------------------------------*/
+/* Table of Content
+
+1.General
+  1.1.Typography
+  1.2.Grid
+2.Common Elements
+3.Layout
+4.Blog
+5.Navigation
+6.Footer
+7.Helper CLasses
+8.WordPress styles
+9.Gutenberg
+10.Widgets
+
+/*-------------------------------------------------------*/
+
+/*-------------------------------------------------------*/
+/* Bootstrap Grid
+/*-------------------------------------------------------*/
+@import "_bootstrap.scss";
+
+/*-------------------------------------------------------*/
+/* General
+/*-------------------------------------------------------*/
+::-moz-selection {
+	color: #333;
+	background: #fbedc4;
+}
+::-webkit-selection {
+	color: #333;
+	background: #fbedc4;
+}
+::selection {
+	color: #333;
+	background: #fbedc4;
+}
+
+a {
+	transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out,
+		border-color 0.1s ease-in-out;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	img {
+		border: none;
+		max-width: 100%;
+		user-select: none;
+	}
+}
+
+video {
+	width: 100%;
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+	font-size: 0.8125rem;
+	margin-top: 16px;
+	color: var(--wp--preset--color--tertiary);
+	text-align: center;
+}

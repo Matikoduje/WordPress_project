@@ -1,0 +1,563 @@
+/*-------------------------------------------------------*/
+/* Navigation
+/*-------------------------------------------------------*/
+.nav {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 120;
+	min-height: var(--deo-nav-height);
+	position: relative;
+	border-bottom: 1px solid var(--deo-border-color);
+
+	&__container {
+		@include bp-sm-down {
+			max-width: 100% !important;
+		}
+	}
+
+	&__header {
+		margin-right: auto;
+	}
+
+	&__menu,
+	&__dropdown-menu {
+		list-style: none;
+	}
+
+	&__menu {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		li {
+			position: relative;
+		}
+
+		& > li > a {
+			font-weight: var(--deo-heading-font-weigth);
+			color: var(--deo-nav-links-color);
+			font-size: 1rem;
+			line-height: var(--deo-nav-height);
+			display: block;
+			position: relative;
+			transition: 0.1s color;
+
+			&:hover,
+			&:focus {
+				color: var(--wp--preset--color--primary);
+			}
+		}
+	}
+
+	&__dropdown-menu li a {
+		font-size: 1rem;
+	}
+
+	/* Dropdowns (large screen) */
+	@include bp-lg-up {
+		&__wrap {
+			&.collapse {
+				display: block;
+				height: auto;
+			}
+		}
+
+		&__menu > li {
+			display: inline-block;
+			text-align: center;
+			padding: 0 17px;
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		&__dropdown-menu {
+			position: absolute;
+			background-color: #fff;
+			z-index: 1000;
+			left: -5px;
+			top: 100%;
+			min-width: 220px;
+			width: 100%;
+			text-align: left;
+			padding: 20px 0;
+			list-style: none;
+			border-radius: 5px;
+			box-shadow: 0 10px 20px rgba(#000, 0.07);
+			background-clip: padding-box;
+			display: block;
+			visibility: hidden;
+			opacity: 0;
+			transform: translateY(20px);
+			transition: all 0.2s ease-in-out;
+
+			& > li > a {
+				color: var(--wp--preset--color--tertiary);
+				padding: 3px 30px;
+				line-height: 22px;
+				display: block;
+
+				&:hover,
+				&:focus {
+					color: var(--wp--preset--color--primary);
+				}
+			}
+		}
+
+		&__item-dropdown::after {
+			content: "\e900";
+			font-size: 12px;
+			opacity: 0.5;
+			font-family: "blockst";
+			line-height: 1;
+			margin-left: 4px;
+		}
+
+		&__dropdown-menu.hide-dropdown {
+			visibility: hidden !important;
+			opacity: 0 !important;
+		}
+
+		&__dropdown:hover > .nav__dropdown-menu,
+		&__dropdown:focus > .nav__dropdown-menu,
+		&__dropdown.focus > .nav__dropdown-menu {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+
+		&__dropdown-menu {
+			.nav__dropdown-menu {
+				left: 100%;
+				top: -20px;
+			}
+		}
+
+		&__dropdown &__dropdown {
+			position: relative;
+		}
+
+		&__dropdown &__dropdown > a:after {
+			content: "\e902";
+			font-family: "blockst";
+			font-size: 14px;
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			@include transform(translateY(-50%));
+		}
+
+		&__dropdown-trigger {
+			display: none;
+		}
+	}
+}
+
+/* Mini Cart dropdown
+-------------------------------------------------------*/
+.blockst-menu-cart__dropdown {
+	@extend .nav__dropdown-menu;
+
+	li a {
+		font-family: inherit;
+	}
+}
+
+/* Dropdown trigger
+-------------------------------------------------------*/
+.nav__dropdown-trigger {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	color: inherit;
+
+	.nav__dropdown &:hover,
+	.nav__dropdown &:focus {
+		background-color: transparent;
+		color: inherit;
+	}
+
+	i {
+		display: inline-block;
+		vertical-align: middle;
+		transition: all 0.2s ease-in-out;
+	}
+
+	&--is-open i {
+		@include transform(rotate(180deg));
+	}
+}
+
+.mobile body {
+	cursor: pointer;
+}
+
+.nav__menu > li.active > a,
+.nav__menu > .current_page_parent > a,
+.nav__menu .current-menu-item > a {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Logo
+-------------------------------------------------------*/
+.logo {
+	line-height: 1;
+	display: block;
+
+	&-url {
+		display: inline-block;
+		vertical-align: middle;
+		color: var(--deo-nav-links-color);
+	}
+}
+
+/* Nav Flexbox
+-------------------------------------------------------*/
+.nav__flex-parent {
+	align-items: center;
+
+	@include bp-lg-up {
+		height: var(--deo-nav-height);
+	}
+
+	@include bp-lg-down {
+		display: block;
+	}
+}
+
+/* Nav Right / Last menu item
+-------------------------------------------------------*/
+.nav__right {
+	align-items: center;
+	justify-content: flex-end;
+	margin-left: 4rem;
+
+	&-item {
+		margin-left: 40px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&-btn-holder {
+		margin-left: 10px;
+	}
+}
+
+.nav__last-item-mobile {
+	padding: 16px 0;
+}
+
+.nav__right-item a,
+.nav__right-item button {
+	&:hover {
+		color: var(--wp--preset--color--primary);
+	}
+}
+
+.nav__right-item .blockst-menu-search__trigger:hover,
+.nav__right-item .blockst-menu-search__trigger:focus {
+	background-color: transparent;
+	color: var(--wp--preset--color--primary);
+}
+
+.blockst-menu-search__icon {
+	font-size: 1.27rem;
+	display: block;
+}
+
+.blockst-menu-cart__icon {
+	font-size: 1.15rem;
+	display: block;
+}
+
+/* Nav Mobile / Icon Toggle
+-------------------------------------------------------*/
+.nav__mobile {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+}
+
+.nav__icon-toggle {
+	display: block;
+	position: relative;
+	padding: 9px !important;
+	width: 36px;
+	height: 32px;
+	margin-right: -9px;
+	margin-left: 10px;
+	border: none;
+	z-index: 50;
+	box-shadow: none;
+
+	.nav__mobile & {
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+		}
+	}
+
+	@include bp-lg-up {
+		display: none;
+	}
+
+	&-bar {
+		background-color: var(--deo-nav-links-color);
+		width: 18px;
+		display: block;
+		position: absolute;
+		height: 2px;
+		border-radius: 1px;
+	}
+
+	span:nth-child(2) {
+		top: 9px;
+		transition: top 0.2s 0.2s ease-in, opacity 0.1s ease-in;
+	}
+
+	span:nth-child(3) {
+		top: 15px;
+		transition: opacity 0.1s ease-in;
+	}
+
+	span:nth-child(4) {
+		bottom: 9px;
+		transition: bottom 0.2s 0.2s ease-in,
+			transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	}
+
+	&--is-opened {
+		span:nth-child(2) {
+			top: 15px;
+			transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+			@include transform(rotate(45deg));
+		}
+
+		span:nth-child(3) {
+			opacity: 0;
+		}
+
+		span:nth-child(4) {
+			bottom: 15px;
+			@include transform(rotate(-45deg));
+			transition: bottom 0.1s ease-out,
+				transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+	}
+}
+
+/* Custom Header Logo
+-------------------------------------------------------*/
+.blockst-logo-container {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Sticky Nav
+-------------------------------------------------------*/
+.nav--sticky {
+	&.offset {
+		@include transform(translate3d(0, -100%, 0));
+		transition: var(--deo-transition--all) !important;
+	}
+
+	&.scrolling {
+		@include transform(translate3d(0, 0px, 0));
+	}
+
+	&.sticky {
+		position: fixed !important;
+		background-color: #fff;
+		visibility: hidden;
+		opacity: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		box-shadow: 0 0 5px rgba(62, 64, 69, 0.1);
+
+		&.scrolling {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+/* Top bar
+-------------------------------------------------------*/
+.top-bar {
+	position: relative;
+	z-index: 2;
+	padding: 8px 0;
+	text-align: center;
+	background-color: #fff;
+	border-bottom: 1px solid var(--deo-border-color);
+
+	@include bp-lg-up {
+		padding: 15px 0;
+	}
+
+	&__url {
+		display: inline-block;
+		color: inherit;
+		transition: color var(--deo-transition);
+
+		&:focus,
+		&:hover {
+			color: var(--wp--preset--color--primary);
+		}
+	}
+
+	&__message {
+		margin-bottom: 0;
+		font-size: 1rem;
+		line-height: 1.2;
+	}
+}
+
+/* Header layouts
+-------------------------------------------------------*/
+.blockst-header--layout-2 {
+	.nav__wrap {
+		order: 1;
+		flex: 1;
+	}
+
+	.nav__header {
+		order: 2;
+		margin-left: auto;
+	}
+
+	.nav__right {
+		order: 3;
+		margin-left: 0;
+		flex: 1;
+	}
+}
+
+/* Go to Top
+-------------------------------------------------------*/
+#back-to-top {
+	display: block;
+	z-index: 100;
+	width: 34px;
+	height: 34px;
+	text-align: center;
+	font-size: 15px;
+	position: fixed;
+	bottom: -34px;
+	right: 20px;
+	line-height: 34px;
+	background-color: var(--wp--preset--color--quaternary);
+	box-shadow: 0px 1px 4px 0px rgba(154, 161, 171, 0.4);
+	border-radius: 50%;
+	transition: var(--deo-transition--all);
+	text-decoration: none;
+
+	i {
+		transition: var(--deo-transition--all);
+	}
+
+	a {
+		display: block;
+		color: var(--deo-nav-links-color);
+	}
+
+	&.show {
+		bottom: 20px;
+	}
+
+	&:hover {
+		background-color: var(--wp--preset--color--primary);
+		bottom: 24px;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+}
+
+/*-------------------------------------------------------*/
+/* Nav Mobile Styles
+/*-------------------------------------------------------*/
+@include bp-lg-down {
+	.nav {
+		&__wrap {
+			margin-left: 0;
+			max-height: calc(100vh - 60px);
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		&__header {
+			height: var(--deo-nav-height);
+			display: flex;
+			align-items: center;
+		}
+
+		&__menu {
+			display: block;
+		}
+
+		&__menu li a {
+			padding: 0;
+			line-height: 46px;
+			height: 46px;
+			display: block;
+			border-bottom: 1px solid var(--deo-border-color);
+		}
+
+		&__menu > li:not(.nav__dropdown):last-child a {
+			border-bottom: 0;
+		}
+
+		&__dropdown-menu a {
+			color: var(--wp--preset--color--tertiary);
+
+			&:hover {
+				color: #000;
+			}
+		}
+
+		&__dropdown-menu > li > a {
+			padding-left: 10px;
+		}
+
+		&__dropdown-menu > li > ul > li > a {
+			padding-left: 20px;
+		}
+
+		&__dropdown-trigger {
+			display: block;
+			width: 20px;
+			min-height: 44px;
+			line-height: 1;
+			font-size: 1rem;
+			text-align: center;
+			position: absolute;
+			right: 0;
+			top: 0;
+			box-shadow: none;
+			z-index: 50;
+			cursor: pointer;
+		}
+
+		&__dropdown-menu {
+			display: none;
+			width: 100% !important;
+		}
+
+		&__dropdown-trigger.active + .nav__dropdown-menu {
+			display: block;
+		}
+	}
+}

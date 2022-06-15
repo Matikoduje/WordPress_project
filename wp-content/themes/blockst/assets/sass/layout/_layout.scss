@@ -1,0 +1,37 @@
+/*-------------------------------------------------------*/
+/* Main Wrapper
+/*-------------------------------------------------------*/
+.main-wrapper {
+	overflow: hidden;
+	position: relative;
+}
+
+.content {
+	min-width: 0;
+}
+
+/* Sections
+-------------------------------------------------------*/
+.page-section {
+	padding: 80px 0 40px;
+}
+
+.shop-section {
+	padding: 64px 0 72px;
+}
+
+.blog .page-title {
+	background-color: transparent;
+	padding-bottom: 64px;
+}
+
+.blog-section,
+.search-results-section,
+.archive-section,
+.shop-section {
+	padding: 40px 0;
+
+	@include bp-md-up {
+		padding: 96px 0;
+	}
+}

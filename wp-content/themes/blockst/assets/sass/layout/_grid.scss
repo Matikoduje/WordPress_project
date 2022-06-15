@@ -1,0 +1,94 @@
+/*-------------------------------------------------------*/
+/* Grid
+/*-------------------------------------------------------*/
+.container-semi-fluid {
+	padding-left: $grid-gutter-width;
+	padding-right: $grid-gutter-width;
+
+	@include bp-xl-up {
+		padding: 0 100px;
+	}
+}
+
+@include bp-lg-down {
+	.container {
+		padding-left: $grid-gutter-width;
+		padding-right: $grid-gutter-width;
+	}
+}
+
+/* Sidebar
+/*-------------------------------------------------------*/
+@include bp-lg-up {
+	.sidebar {
+		max-width: 368px;
+		flex: 0 0 368px;
+	}
+
+	.blockst-left-sidebar {
+		.content {
+			order: 2;
+		}
+	}
+}
+
+@include bp-lg-up {
+	.blockst-left-sidebar {
+		.content {
+			padding-left: 65px;
+		}
+	}
+
+	.blockst-right-sidebar {
+		.content {
+			padding-right: 65px;
+		}
+	}
+}
+
+/* Flexbox
+-------------------------------------------------------*/
+.flex-parent {
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	-ms-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+}
+
+.flex-child {
+	flex: 1 0 0;
+}
+
+/* Row Gutters
+-------------------------------------------------------*/
+.row-8 {
+	margin: 0 -4px;
+
+	& > div {
+		padding: 0 4px;
+	}
+}
+
+.row-10 {
+	margin: 0 -5px;
+
+	& > div {
+		padding: 0 5px;
+	}
+}
+
+.row-16 {
+	margin: 0 -8px;
+
+	& > div {
+		padding: 0 8px;
+	}
+}
+
+.row-40 {
+	margin: 0 -20px;
+
+	& > div {
+		padding: 0 20px;
+	}
+}

@@ -1,0 +1,29 @@
+/*-------------------------------------------------------*/
+/* Page 404
+/*-------------------------------------------------------*/
+.page-404 {
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+
+	&-section {
+		padding: 120px 0;
+
+		@include bp-lg-up {
+			padding: 240px 0;
+		}
+	}
+
+	&__title {
+		font-size: var(--wp--preset--font-size--x-large);
+
+		@include bp-lg-up {
+			font-size: var(--wp--preset--font-size--2-x-large);
+		}
+	}
+
+	&__text {
+		font-size: 1.25rem;
+	}
+}

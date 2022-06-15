@@ -1,0 +1,79 @@
+/*-------------------------------------------------------*/
+/* Pagination
+/*-------------------------------------------------------*/
+.post-pagination {
+	margin-bottom: 24px;
+}
+
+.pagination {
+	text-align: center;
+	margin-top: 24px;
+}
+
+.pagination span,
+.pagination a,
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span,
+.post-page-numbers {
+	font-size: 0.875rem;
+	display: inline-block;
+	border-radius: var(--deo-border-radius);
+	padding: 0 4px;
+	height: 34px;
+	min-width: 34px;
+	line-height: 32px;
+	margin: 0 2px 8px;
+	text-align: center;
+	color: var(--wp--preset--color--tertiary);
+	vertical-align: middle;
+	white-space: nowrap;
+	border: 1px solid var(--deo-border-color);
+	background-color: #fff;
+	font-family: var(--deo-heading-font);
+	list-style: none;
+	transition: var(--deo-transition--all);
+
+	&:not(span):hover,
+	&:not(span):focus {
+		background-color: var(--wp--preset--color--primary);
+		border-color: transparent;
+		color: #fff;
+	}
+
+	&.current {
+		background-color: var(--wp--preset--color--primary);
+		color: #fff;
+		border-color: transparent;
+	}
+
+	i {
+		display: inline-block;
+		font-size: 0.9375rem;
+		position: relative;
+		top: 1px;
+
+		.rtl & {
+			transform: rotateY(180deg);
+		}
+	}
+}
+
+.woocommerce nav.woocommerce-pagination .next,
+.woocommerce nav.woocommerce-pagination .prev {
+	font-size: 0;
+	padding: 0;
+
+	&::before,
+	&::after {
+		font-family: "blockst";
+		font-size: 1rem;
+	}
+}
+
+.woocommerce nav.woocommerce-pagination .next::before {
+	content: "\e902" /*rtl:\e901*/;
+}
+
+.woocommerce nav.woocommerce-pagination .prev::before {
+	content: "\e901" /*rtl:\e902*/;
+}
